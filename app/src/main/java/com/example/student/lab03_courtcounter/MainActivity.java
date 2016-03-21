@@ -3,6 +3,7 @@ package com.example.student.lab03_courtcounter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
@@ -17,13 +18,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void displayforTeamA(int score) {
-        TextView scoreView = (TextView)findViewById(R.id.team_a_score);
-        scoreView.setText(String.valueOf(score));
+//        TextView scoreView = (TextView)findViewById(R.id.team_a_score);
+//        scoreView.setText(String.valueOf(score));
     }
 
     private void displayforTeamB(int score) {
-        TextView scoreView = (TextView)findViewById(R.id.team_b_score);
-        scoreView.setText(String.valueOf(score));
+//        TextView scoreView = (TextView)findViewById(R.id.team_b_score);
+//        scoreView.setText(String.valueOf(score));
     }
 
     public void add3ForTeamA(View view) {
@@ -61,5 +62,23 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamB = 0;
         displayforTeamA(scoreTeamA);
         displayforTeamB(scoreTeamB);
+    }
+
+    public void addThreePoints(View view) {
+//        CourtCounterFragment fragment_team_a =
+//                (CourtCounterFragment)getSupportFragmentManager().findFragmentById(R.id.fragment_team_a);
+//        fragment_team_a.m_tv_team_score.setText("3");
+        LinearLayout linearLayout =(LinearLayout)view.getParent();
+        TextView tv_team_score = (TextView)linearLayout.findViewById(R.id.tv_team_score);
+        int score = Integer.parseInt(tv_team_score.getText().toString());
+        tv_team_score.setText(String.valueOf(score+3));
+
+    }
+
+    public void addTwoPoints(View view) {
+    }
+
+
+    public void freeThrow(View view) {
     }
 }
